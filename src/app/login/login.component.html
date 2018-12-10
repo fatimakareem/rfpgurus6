@@ -1,0 +1,84 @@
+<!-- <app-header></app-header> -->
+<app-loader></app-loader>
+<div class="login-form-1-img" style="margin-top: -15px">
+    <div class="container">
+        <div class="login-form-1-center">
+            <form [formGroup]="login" class="login-form-1 sh-signup-form-fix sh">
+                <div class="login-form-1-header">
+                    <h3>Sign In to Your Account</h3>
+                </div>
+                <div class="card-content mrgn-20-0-0">
+                    <div class="form-group label-floating" [ngClass]="displayFieldCss(login, 'username')">
+                        <mat-form-field>
+                            <input matInput type="text" id="username" formControlName="username" placeholder="Username"
+                                required />
+                            <mat-error *ngIf="login.controls.username.value == ''">
+                                <strong class="error-block">Username cannot be empty</strong>
+                            </mat-error>
+                        </mat-form-field>
+                    </div>
+                    <div class="form-group label-floating" [ngClass]="displayFieldCss(login, 'password')" style="margin-top: -17px">
+                        <mat-form-field>
+                            <input matInput type="password" id="password" [type]="hide ? 'password' : 'text'" formControlName="password" placeholder="Password" required />
+                            <mat-icon matSuffix (click)="hide = !hide">{{hide ? 'visibility_off' : 'visibility'}}</mat-icon>
+                            <mat-error *ngIf="login.controls.password.value == ''">
+                                <strong class="error-block">Password cannot be empty</strong>
+                            </mat-error>
+                        </mat-form-field>
+                    
+                        <div class="checkbox ">
+                            <label>
+                                <input type="checkbox" value="" name="remember" checked> Keep me logged in
+                            </label>
+                        </div>
+                    </div>
+                    <div class="form-group mg-btm-10">
+                    <blackgeeks-recaptcha >
+                    </blackgeeks-recaptcha>
+                    <div class="error-block" *ngIf="isequal==false" style="float: left;">
+                        <span>*Please Enter Valid Answer</span>
+                    </div>
+                    </div>
+                    <div >
+                        <label>
+                            <a style="cursor:pointer;text-decoration:underline" (click)="foremail()">Forgot your password?</a>
+                        </label>
+                    </div>
+                    <div >
+                        <span style="font-weight:700">No Account Yet?
+                            <a routerLink="/sign-up">Signup</a>
+                        </span>
+                        </div>
+                    <div class="clearfix"></div>
+                    <div class="form-footer ">
+                       
+                          
+                            <div class="form-group ">
+                            <button type="submit"  class="btn btn-rose btn-fill btn-wd sh-signin-btn" (click)="onLogin()">Sign in</button>
+
+                            <p  class="sh-OR" data-reactid="40">OR</p>
+
+
+                            <div class="other-logins">
+                                <button  (click)="signInWithFB()" class="btn btn-rose btn-fill btn-wd s-l-fb" >
+                                    <i  class="fa fa-facebook"></i>
+                                    <span >Facebook</span>
+                                </button>
+                                <button (click)="signInWithGoogle()"  class="btn btn-rose btn-fill btn-wd  s-l-google" >
+                                    <i  class="fa fa-google"></i>
+                                    <span>Google</span>
+                                </button>
+                                <br>
+                                <div class="term-privacy">
+                                <a href="#">Terms of Service </a>
+                                <a href="#">Privacy Policy</a>
+                                <a href="#">Cookies Policy</a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>

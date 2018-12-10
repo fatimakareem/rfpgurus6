@@ -23,9 +23,22 @@
               "src/assets"
             ],
             "styles": [
-              "src/styles.css"
-            ],
-            "scripts": []
+              "./node_modules/bootstrap/dist/css/bootstrap.css",
+              "./node_modules/sweetalert2/dist/sweetalert2.css",
+              "./src/assets/sass/material-dashboard.scss",
+              "./node_modules/slick-carousel/slick/slick.css"
+          ],
+          "scripts": [
+            "./node_modules/hammerjs/hammer.min.js",
+            "./node_modules/jquery/dist/jquery.js",
+            "./node_modules/bootstrap/dist/js/bootstrap.js",
+            "./node_modules/bootstrap-material-design/dist/js/material.min.js",
+            "./node_modules/jasny-bootstrap/dist/js/jasny-bootstrap.min.js",
+            "./node_modules/sweetalert2/dist/sweetalert2.js",
+            "./node_modules/arrive/minified/arrive.min.js",
+            "./node_modules/slick-carousel/slick/slick.min.js"
+           
+                ]
           },
           "configurations": {
             "production": {

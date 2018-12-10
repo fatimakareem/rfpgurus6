@@ -1,0 +1,71 @@
+
+ 
+ <div class="row margin-0">
+  <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12 center-admin-form" id="display_advance">
+  <!--<h3 class="text-center">-->
+  <!--<strong>Change Password</strong>-->
+  <!--</h3>-->
+  <!--<hr>-->
+  <!--<div class="alert alert-rose alert-with-icon" data-notify="container">-->
+  <!--<i class="material-icons" data-notify="icon">notifications</i>-->
+  <!--<span data-notify="message">-->
+  <!--We will require verified e-mail address since we deliver digital products via email.-->
+  <!--</span>-->
+              <!--</div>-->
+              <div   class="col-md-5 page-title" style="margin: 10px auto;
+              float: none;" >
+                <span>Notifications</span>
+               
+              </div>
+              <div class="col-sm-12 text-center" *ngIf="notificate.length == 0">
+                  <i class="fa fa-exclamation-triangle" style="font-size:35px;padding:15px 0 0;"></i>
+                  <h3 class="text-center">No Notifications Found</h3>
+              </div>
+              <div class="col-md-5  sh-notification-div sh" *ngIf="notificate.length != 0">
+                  <div class="card">
+                     <div  *ngFor="let item of notificate">
+        <!--<div class="addtocart-time" (click)="deletenofication(item?.id)">-->
+          <!--<i class="fa fa-times"></i>-->
+        <!--</div>-->
+        <div class="heart-main-div" *ngIf="item.read == false">
+          <div class="heart-contact sh-del-watchlist">
+              <a class="heart-heading" [routerLink]="['/rfp/', item.target]">
+                  {{item.type_of_notification}}
+              </a>
+              <span class="sh-del " (click)="deletenofication(item?.id)">
+                <i class="fas fa-trash-alt"></i>
+              </span>
+            <div class="heart-detail plan-detail">
+              <h5 style="cursor:pointer"  (click)="single(item.target);updatenofication(item.id)"> {{item.description}}</h5>
+            </div>
+            <!-- <div class="heart-detail plan-detail sh-notification-seen" *ngIf="item.read == true">
+                <h5 (click)="single(item.target);updatenofication(item?.id)"> {{item.description}}</h5>
+              </div> -->
+          </div>
+        </div>
+       
+
+        <div class="heart-main-div sh-notification-seen" *ngIf="item.read == true">
+          <div class="heart-contact sh-del-watchlist ">
+              <a class="heart-heading" [routerLink]="['/rfp/', item.target]">
+                  {{item.type_of_notification}}
+              </a>
+              <span class="sh-del " (click)="deletenofication(item?.id)">
+                <i class="fas fa-trash-alt"></i>
+              </span>
+            <!-- <div class="heart-detail plan-detail"*ngIf="item.read == false">
+              <h5 style="cursor:pointer"  (click)="single(item.target);updatenofication(item.id)"> {{item.description}}</h5>
+            </div> -->
+            <div class="heart-detail plan-detail " >
+                <h5 (click)="single(item.target);updatenofication(item?.id)"> {{item.description}}</h5>
+              </div>
+          </div> 
+          </div>
+      </div>
+      <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12 text-center" *ngIf="notificate">
+        <button class="btn btn-rose btn-fill btn-wd add-payment" (click)="deleteallnotification()">Clear All Notifications </button>
+      </div>
+      <!-- <div class="wishlist-btn-div text-center">
+        <button class="btn btn-primary btn-rose btn-lg pull-left text-center"(click)="deleteallnotification()">Clear All Notifications </button>
+      </div> -->
+                  </div></div></div></div>

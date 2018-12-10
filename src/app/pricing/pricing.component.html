@@ -1,0 +1,468 @@
+<app-loader></app-loader>
+
+
+<section *ngIf="!pkgsub" class="section pricing2-section">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12" style="text-align: center;">
+                <h2 class="pricing_heading">Our Unbeatable Pricing Model </h2>
+                <p style="font-weight: 500;">Unbeatable Pricing. One-Package-Includes-All Features & RFPs Nationwide.
+                    Subscribe to Monthly or Yearly democratized
+                    pricing packages. With a transparent and democratized pricing model, RFPGurus is the most
+                    affordable
+                    and comprehensive sources of Government Contracts, Bids, RFPs, RFIs, RFQs, RFBs and RFTs from over
+                    thousands
+                    and thousands of Government Agencies, States, Cities, Municipalities, Counties, Special District
+                    andx
+                    other Agencies.</p>
+            </div>
+
+            <div class="col-lg-4 col-md-4 col-lg-offset-2 col-md-offset-2 col-sm-6 col-xs-12 pricing-table2 featured "
+                data-wow-delay="0.5s">
+                <div class="single-pricing-2">
+                    <span class="plan-name text-center">
+                        Monthly Plan
+                    </span>
+                    <p class="plan-price">
+                        <sup class="currency">$</sup>
+                        <strong>24.99</strong>
+                    </p>
+                    <ul class="list-pricing home-list-pricing">
+                        <li>
+                            <i class="fa fa-check"></i> Bid Matching Artificial Intelligence (AI)
+                        </li>
+                        <li>
+                            <i class="fa fa-check"></i> Upcoming Bids
+                        </li>
+                        <li>
+                            <i class="fa fa-check"></i> State &amp; Local Agency Bids
+                        </li>
+                        <li>
+                            <i class="fa fa-check"></i> Federal Agency Bids
+                        </li>
+                        <li>
+                            <i class="fa fa-check"></i> Daily Email Bid Alerts &amp; Notifications
+                        </li>
+                        <li>
+                            <i class="fa fa-check"></i> Search Engine
+                        </li>
+                        <li>
+                            <i class="fa fa-check"></i> Android Mobile App
+                        </li>
+                        <li>
+                            <i class="fa fa-check"></i> iOS Mobile App
+                        </li>
+                        <li>
+                            <i class="fa fa-check"></i> Electronic Bid Submission
+                        </li>
+                        <li>
+                            <i class="fa fa-check"></i> Winning Bidder Insight
+                        </li>
+                        <li>
+                            <i class="fa fa-check"></i> Technical Support Chat
+                        </li>
+                        <li>
+                            <i class="fa fa-check"></i> RFP as a Service*
+                        </li>
+                    </ul>
+                    <div class="pricing2-button">
+                        <a *ngIf="check_login(); else pkg1" routerLink='/sign-up' class="btn btn-rose" title="Subscribe Package">Register
+                            Now</a>
+                        <ng-template #pkg1>
+                            <a (click)=" firststep('BM')" class="btn btn-rose" title="Select Plan">Select Plan</a>
+                        </ng-template>
+                    </div>
+                </div>
+            </div>
+            <!---->
+            <div class="col-lg-4 col-md-4 col-sm-6 col-xs-12 pricing-table2 premium wow animated bounceInUp"
+                data-wow-delay="0.6s">
+                <div class="single-pricing-2">
+                    <span class="plan-name text-center">
+                        Yearly Plan
+                    </span>
+                    <p class="plan-price">
+                        <sup class="currency">$</sup>
+                        <strong>199.99</strong>
+                    </p>
+                    <ul class="list-pricing home-list-pricing">
+                        <li>
+                            <i class="fa fa-check"></i> Bid Matching Artificial Intelligence (AI)
+                        </li>
+                        <li>
+                            <i class="fa fa-check"></i> Upcoming Bids
+                        </li>
+                        <li>
+                            <i class="fa fa-check"></i> State &amp; Local Agency Bids
+                        </li>
+                        <li>
+                            <i class="fa fa-check"></i> Federal Agency Bids
+                        </li>
+                        <li>
+                            <i class="fa fa-check"></i> Daily Email Bid Alerts &amp; Notifications
+                        </li>
+                        <li>
+                            <i class="fa fa-check"></i> Search Engine
+                        </li>
+                        <li>
+                            <i class="fa fa-check"></i> Android Mobile App
+                        </li>
+                        <li>
+                            <i class="fa fa-check"></i> iOS Mobile App
+                        </li>
+                        <li>
+                            <i class="fa fa-check"></i> Electronic Bid Submission
+                        </li>
+                        <li>
+                            <i class="fa fa-check"></i> Winning Bidder Insight
+                        </li>
+                        <li>
+                            <i class="fa fa-check"></i> Technical Support Chat
+                        </li>
+                        <li>
+                            <i class="fa fa-check"></i> RFP as a Service*
+                        </li>
+                    </ul>
+                    <div class="pricing2-button">
+                        <a *ngIf="check_login(); else pkg4" routerLink='/sign-up' class="btn btn-rose" title="Subscribe Package">Register
+                            Now</a>
+                        <ng-template #pkg4>
+                            <a (click)="firststep('PY')" class="btn btn-rose " title="Select Plan">Select Plan</a>
+                        </ng-template>
+                    </div>
+                </div>
+            </div>
+            <!---->
+            <!-- <div class="col-lg-4 col-md-4 col-sm-4 col-xs-12 pricing-table2 premium wow animated bounceInRight"
+                data-wow-delay="0.6s">
+                <div class="single-pricing-2 custom-package">
+                    <span class="plan-name text-center">
+                        Custom
+                    </span>
+                    <p class="plan-price custome-price" style="background-color: black !important;">
+                        <sup class="currency">For You</sup>
+                        <strong>Package</strong>
+                    </p>
+                    <ul class="list-unstyled">
+                        <li>
+                            <strong>Solution</strong> &amp; pricing</li>
+                        <li>based on
+                            <strong> your</strong>
+                        </li>
+                        <li>
+                            <strong>organization's </strong> specific</li>
+                        <li>requirements and needs</li>
+                    </ul>
+                    <div class="pricing2-button">
+                        <a class="btn btn-common" routerLink="/contact-us">
+                            <i class="fa fa-phone"></i>Establish Contact</a>
+                    </div>
+                </div>
+            </div> -->
+        </div>
+    </div>
+</section>
+<!--3rd step-->
+<div *ngIf="pkgsub" data-wow-delay=".5s">
+    <div class="container-fluid">
+        <div class="row">
+            <!-- <div class="col-lg-4 col-md-4 col-sm-12 col-xs-12 container"> -->
+               
+                <!-- <div class="clearfix"></div>
+                <div class="package-detail">
+                    <h2>PACKAGE DETAILS</h2>
+                    <table class="table projects table-bordered table-responsive">
+                        <tbody>
+                            <tr>
+                                <td>Package Type</td>
+                                <td>{{pkg_detail['type']}}</td>
+                            </tr>
+                            <tr>
+                                <td>Duration</td>
+                                <td>{{pkg_detail['dur']}}</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div> -->
+            <!-- </div> -->
+            <div class="col-lg-7 col-lg-offset-3 col-md-offset-3 col-md-7 col-sm-12 col-xs-12 sh-plan-form">
+                    <div class="dropdown mydropdown">
+                            <select (change)="next_stepdetail($event)" class="btn btn-success record-btn-mail dropdown-toggle text-left"
+                                data-toggle="dropdown" value="{{valuee}}">
+                                <!-- <option value="" disabled selected>Select Package</option> -->
+                                <option value="PY">Yearly Subscription</option>
+                                <option value="BM">Monthly Subscription</option>
+                            </select>
+                        </div>
+                <div class="checkout ">
+                    <div [className]="flipclass">
+                        <div class="flip">
+                            <div class="front">
+                                <div class="chip"></div>
+                                <div class="logo">
+                                    <svg version="1.1" id="visa" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"
+                                        x="0px" y="0px" width="47.834px" height="47.834px" viewBox="0 0 47.834 47.834"
+                                        style="enable-background:new 0 0 47.834 47.834;">
+                                        <g>
+                                            <g>
+
+                                            </g>
+                                        </g>
+                                    </svg>
+                                </div>
+                                <div class="number"> {{cardnumber1}} {{cardnumber2}} {{cardnumber3}} {{cardnumber4}}</div>
+                                <div class="card-holder">
+                                    <label>Card holder</label>
+                                    <div>{{cardholdername}}</div>
+                                </div>
+                                <div class="card-expiration-date">
+                                    <label>Expires</label>
+                                    <div>{{expmonth}}/{{expyear}}</div>
+                                </div>
+                            </div>
+                            <div class="back">
+                                <div class="strip"></div>
+                                <div class="logo">
+                                    <svg version="1.1" id="visa" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"
+                                        x="0px" y="0px" width="47.834px" height="47.834px" viewBox="0 0 47.834 47.834"
+                                        style="enable-background:new 0 0 47.834 47.834;">
+                                        <g>
+                                            <g>
+                                            </g>
+                                        </g>
+                                    </svg>
+
+                                </div>
+                                <div class="ccv">
+                                    <label>CCV</label>
+                                    <div>{{ccv}}</div>
+                                </div>
+                            </div>
+
+                        </div>
+                    </div>
+
+
+                    <form class="form " autocomplete="off" novalidate>
+                        <fieldset>
+                            <label for="card-number" style="font-size:16px;">Card Number</label>
+
+
+                            <input type="num" (keypress)="keyPresszip($event)" id="card-number" class="input-cart-number"
+                                required name="cardnumber1" minlength="4" maxlength="4" [(ngModel)]="cardnumber1"
+                                #cardnumber="ngModel" />
+
+                            <input type="num" id="card-number-1" (keypress)="keyPresszip($event)" class="input-cart-number"
+                                minlength="4" maxlength="4" required name="cardnumber2" #cardnumbercard2="ngModel"
+                                [(ngModel)]="cardnumber2" />
+
+                            <input type="num" id="card-number-2" (keypress)="keyPresszip($event)" class="input-cart-number"
+                                minlength="4" maxlength="4" required name="cardnumber3" #cardnumbercard3="ngModel"
+                                [(ngModel)]="cardnumber3" />
+
+                            <input type="num" id="card-number-3" (keypress)="keyPresszip($event)" class="input-cart-number"
+                                minlength="4" maxlength="4" required name="cardnumber4" #cardnumbercard4="ngModel"
+                                [(ngModel)]="cardnumber4" />
+
+                        </fieldset>
+                        <!-- <div *ngIf="cardnumbercard2.touched && cardnumbercard2.invalid">
+                            <div *ngIf="cardnumbercard2.errors.required" class="card-error">
+                                Card number cannot be empty
+                            </div>
+                            <div *ngIf="cardnumbercard2.errors.minlength" class="card-error">
+                                Number must be at least 4 digits
+                            </div>
+                        </div>
+                        <div *ngIf="cardnumbercard3.touched && cardnumbercard3.invalid">
+                            <div *ngIf="cardnumbercard3.errors.required" class="card-error">
+                                Card number cannot be empty
+                            </div>
+                            <div *ngIf="cardnumbercard3.errors.minlength" class="card-error">
+                                Number must be at least 4 digits
+                            </div>
+                        </div>
+                        <div *ngIf="cardnumbercard4.touched && cardnumbercard4.invalid">
+                            <div *ngIf="cardnumbercard4.errors.required" class="card-error">
+                                Card number cannot be empty
+                            </div>
+                            <div *ngIf="cardnumbercard4.errors.minlength" class="card-error">
+                                Number must be at least 4 digits
+                            </div>
+                        </div>
+                        <div *ngIf="cardnumber.touched && cardnumber.invalid">
+                            <div *ngIf="cardnumber.errors.required" class="card-error">
+                                Card number cannot be empty
+                            </div>
+                            <div *ngIf="cardnumber.errors.minlength" class="card-error">
+                                Number must be at least 4 digits
+                            </div>
+                        </div> -->
+                        <fieldset>
+                            <label for="card-holder" style="font-size:16px;">Card holder</label>
+                            <input (keypress)="keyPressnamezip($event)" type="text" name="cardholdername" maxlength="20"
+                                required #cardholde1="ngModel" [(ngModel)]="cardholdername" id="card-holder" />
+                            <!-- <div *ngIf="cardholde1.touched && cardholde1.invalid">
+                                <div *ngIf="cardholde1.errors.required" class="card-error">
+                                    Card Holder Name cannot be empty
+                                </div>
+                            </div> -->
+                        </fieldset>
+
+
+                        <fieldset class="fieldset-expiration">
+                            <label for="card-expiration-month" style="font-size:16px;">Expiration date</label>
+                            <div class="select text-center">
+                                <select id="card-expiration-month" name="expmonth" required #expmonth1="ngModel"
+                                    [(ngModel)]="expmonth">
+                                    <option value="" disabled selected>Month</option>
+                                    <option>01</option>
+                                    <option>02</option>
+                                    <option>03</option>
+                                    <option>04</option>
+                                    <option>05</option>
+                                    <option>06</option>
+                                    <option>07</option>
+                                    <option>08</option>
+                                    <option>09</option>
+                                    <option>10</option>
+                                    <option>11</option>
+                                    <option>12</option>
+                                </select>
+                            </div>
+                            <div class="select text-center">
+                                <select id="card-expiration-year" required #expyear1="ngModel" name="expyear"
+                                    [(ngModel)]="expyear">
+                                    <option value="" disabled selected>Year</option>
+                                    <option>2016</option>
+                                    <option>2017</option>
+                                    <option>2018</option>
+                                    <option>2019</option>
+                                    <option>2020</option>
+                                    <option>2021</option>
+                                    <option>2022</option>
+                                    <option>2023</option>
+                                    <option>2024</option>
+                                    <option>2025</option>
+                                </select>
+
+                            </div>
+                            <br><br>
+                            <!-- <div *ngIf="expyear1.touched && expyear1.invalid">
+                                <div *ngIf="expyear1.errors.required" class="card-error">
+                                    Year Filed Cannot be empty
+                                </div>
+                            </div>
+                            <div *ngIf="expmonth1.touched && expmonth1.invalid">
+                                <div *ngIf="expmonth1.errors.required" class="card-error">
+                                    Month Filed Cannot be empty
+                                </div>
+                            </div> -->
+                        </fieldset>
+
+
+
+                        <fieldset class="fieldset-ccv">
+                            <label for="card-ccv" style="font-size:16px;">CCV</label>
+                            <input type="text" (keypress)="keyPresszip($event)" id="card-ccv" minlength="3" maxlength="4"
+                                required name="ccv" #ccv1="ngModel" (focusout)="flipagain()" (focus)="flip()"
+                                [(ngModel)]="ccv" />
+                            <!-- <div *ngIf="ccv1.touched && ccv1.invalid">
+                                <div *ngIf="ccv1.errors.required">
+                                    CCV number cannot be empty
+                                </div>
+                                <div *ngIf="ccv1.errors.minlength">
+                                    CCV must be at atmost 3 digits long.
+                                </div>
+                            </div> -->
+                        </fieldset>
+                        <fieldset>
+                            <label for="card-ccv" style="font-size:16px;">Enroll in Autopay </label>
+                            <mat-slide-toggle name="default" [(ngModel)]="default" data-target="#myModal4" data-toggle="modal" class="py-toggle">
+                            </mat-slide-toggle>
+                            <span>set as recurring payment method</span>
+                        </fieldset>
+                        <button class="btn sh" (click)="proceed()">
+
+                            <i class="fa fa-lock"></i> Continue</button>
+
+                    
+                        
+                        </form>
+
+                    <!-- Modal -->
+                   
+
+                </div>
+            </div>
+
+        </div>
+        <div class="sh-container-paymnt" *ngIf="message!='No Credit card detail in your list'">
+            <div class="table-responsive margin-top-20">
+                <table class="table payment-table">
+                    <thead>
+                        <tr>
+                            <th>Name</th>
+                            <th>Card Number</th>
+                            <th>CCV</th>
+                            <th>Expiry Date</th>
+                            <!-- <th>Pin Code</th> -->
+                            <th>Street Address</th>
+                            <th>Zip Code</th>
+                            <th>City</th>
+                            <th>State</th>
+                            <th>Country </th>
+                            <th>Status</th>
+                            <th>Set as Defalt</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr *ngFor="let card of res">
+                            <td>{{card.nickname}}</td>
+                            <td>{{card.cardNumber}}</td>
+                            <!-- <td>{{card.number | slice:0:4}}-{{card.number | slice:4:8}}-{{card.number | slice:8:12}}</td> -->
+                            <td>{{card.ccv}}</td>
+                            <td>{{card.expiryDate }} </td>
+                            <!-- <td>{{card.pinCode.length > 0 ? '...' : '****'}} </td> -->
+                            <td>{{card.street_address }} </td>
+                            <td>{{card.zipcode }} </td>
+                            <td> {{card.city }}</td>
+                            <td>{{card.state }} </td>
+                            <td> {{card.country }}</td>
+                            <td>{{card.default}}</td>
+                            <td>
+                                <mat-slide-toggle name="atm_details" [(ngModel)]="card.default" (click)="setcard(card.default,card.id,card.nickname,card.cardNumber,card.ccv,card.expiryDate,card.street_address,card.zipcode,card.city,card.state,card.country,card.autopay)"
+                                    class="py-toggle"></mat-slide-toggle>
+
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+</div>
+
+        <div id="myModal4" class="modal fade" role="dialog">
+                <div class="modal-dialog">
+
+                    <!-- Modal content-->
+                    <div class="modal-content">
+                        <div class="modal-header">
+                            <button type="button" class="close" data-dismiss="modal" ><i
+                                    class="fa fa-times btn-dismiss"></i></button>
+                            <!-- <h4 class="modal-title heading-modal">Set as recurring payment method </h4> -->
+                        </div>
+                        <div class="modal-body text-center padding-zero">
+                            <h4>I Agree to terms and condition.</h4>
+                        </div>
+                        <div class="modal-footer">
+                            <div class="modal-buttons">
+                                <button type="button" class="btn btn-default" data-dismiss="modal" (click)="setautopay(status.default,status.id,status.name,status.number,status.cvc,status.expDate,status.street_address,status.zipcode,status.city,status.state,status.country,status.autopay)">Yes</button>
+                                <button type="button" class="btn btn-default" 
+                                    data-dismiss="modal">No</button>
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+            </div>

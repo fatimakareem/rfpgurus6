@@ -1,0 +1,9 @@
+.main-content{padding:20px 0 0;overflow:hidden}.signup-main hr{border-color:#ccc}
+.error-block{
+    color: red;
+    font-weight: bold;
+    font-size: 15px;
+}
+.card .card-header.card-header-icon i{
+    font-size: 25px;
+}

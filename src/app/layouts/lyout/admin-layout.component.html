@@ -1,0 +1,24 @@
+<app-header></app-header>
+<div class="wrapper" style="overflow: hidden ;">
+  <div class="container-fluid" >
+    <div class="row">
+        <div class="navbar-minimize sidebarToggle" >
+            <button class="btn btn-round btn-white btn-fill btn-just-icon" id="minimizeSidebar">
+              <i class="material-icons visible-on-sidebar-regular">more_vert</i>
+              <i class="material-icons visible-on-sidebar-mini">view_list</i>
+              <div class="ripple-container"></div>
+            </button>
+            <strong>Sidebar</strong>
+          </div>
+          <div class="sidebar custom sh-sidebar">
+            <app-user-sidebar></app-user-sidebar>
+          </div>
+      <div>
+        <router-outlet></router-outlet>
+      </div>
+    </div>
+  </div>
+  <div class="dashboard-footer" >
+      <app-footer-cmp></app-footer-cmp>
+  </div>
+</div>

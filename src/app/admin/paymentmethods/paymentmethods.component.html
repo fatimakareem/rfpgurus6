@@ -1,0 +1,382 @@
+<div class="container-fluid sh-payment">
+  <div class="container card-content">
+    <div class="checkout">
+      <div [className]="flipclass">
+        <div class="flip">
+          <div class="front">
+            <div class="chip"></div>
+            <div class="logo">
+              <svg version="1.1" id="visa" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"
+                x="0px" y="0px" width="47.834px" height="47.834px" viewBox="0 0 47.834 47.834" style="enable-background:new 0 0 47.834 47.834;">
+              </svg>
+            </div>
+            <div class="card-holder" style="top: 29px;left: 221px;">
+              <label>Nickname</label>
+              <div>{{form.controls.cardnickname.value}}</div>
+            </div>
+            <div class="card-holder">
+              <label>Card Number</label>
+              <div>{{form.controls.cardnumber.value}}{{form.controls.cardnumber2.value}}</div>
+            </div>
+            <div class="card-expiration-date">
+              <label>Expiry Date</label>
+              <div>{{form.controls.expirydate.value}}</div>
+            </div>
+          </div>
+          <div class="back">
+            <div class="strip"></div>
+            <div class="logo">
+              <svg version="1.1" id="visa" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"
+                x="0px" y="0px" width="47.834px" height="47.834px" viewBox="0 0 47.834 47.834" style="enable-background:new 0 0 47.834 47.834;">
+                <g>
+                  <g>
+
+                  </g>
+                </g>
+              </svg>
+
+            </div>
+            <div class="card-expiration-date">
+              <label>Expiry Date</label>
+              <div>{{form.controls.expirydate.value}}</div>
+            </div>
+            <div class="ccv">
+              <label>CCV</label>
+              <div>{{form.controls.ccv.value}}{{form.controls.ccv2.value}}</div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- <input type="checkbox" [(ngModel)]="check_value" name="check_value"  (change)="ShowButton(check_value,$event)"> -->
+     
+      <form class=" sh-signup-form-fix edit-profile" [formGroup]="form">
+        <div class="col-md-12 padding-0">
+        <div class="col-md-4">
+          <mat-form-field>
+            <mat-select placeholder="Type Card" [formControl]="var_type_atm" (change)="ShowButton(var_type_atm.value)">
+              <mat-option *ngFor="let card_get_datat of card_opeation" [value]="card_get_datat.value">{{card_get_datat.viewValue}}</mat-option>
+            </mat-select>
+    </mat-form-field>
+        </div>
+      </div>
+         
+        <div class="col-lg-6 col-md-6 col-sm-6 col-xs-12" *ngIf="cardnumber">
+          <mat-form-field>
+            <input matInput type="text" minlength="16" maxlength="16" placeholder="Credit Card Number" formControlName="cardnumber">
+            <mat-error *ngIf="form.controls.cardnumber.touched && form.controls.cardnumber.invalid">
+              <mat-error *ngIf="form.controls.cardnumber.errors.required">
+                Card number cannot be empty
+              </mat-error>
+              <mat-error *ngIf="form.controls.cardnumber.hasError('pattern')">
+                Card number must be only in digits.
+              </mat-error>
+              <mat-error *ngIf="cardexist">
+                This Card Number already exist.
+              </mat-error>
+            </mat-error>
+          </mat-form-field>
+        </div>
+        <div class="col-lg-6 col-md-6 col-sm-6 col-xs-12" *ngIf="cardnumber2">
+          <mat-form-field>
+            <input matInput type="text" minlength="15" maxlength="15" placeholder="Credit Card Number" formControlName="cardnumber2">
+            <mat-error *ngIf="form.controls.cardnumber2.touched && form.controls.cardnumber2.invalid">
+              <mat-error *ngIf="form.controls.cardnumber2.errors.required">
+                Card number cannot be empty
+              </mat-error>
+              <mat-error *ngIf="form.controls.cardnumber2.hasError('pattern')">
+                Card number must be only in digits.
+              </mat-error>
+              <mat-error *ngIf="cardexist">
+                This Card Number already exist.
+              </mat-error>
+            </mat-error>
+          </mat-form-field>
+        </div>
+
+
+        <div class="col-lg-6 col-md-6 col-sm-6 col-xs-12" *ngIf="ccv">
+          <mat-form-field>
+            <input matInput type="password" maxlength="3" minlength="3" placeholder="CCV No." formControlName="ccv">
+            <mat-error *ngIf="form.controls.ccv.touched && form.controls.ccv.invalid">
+              <mat-error *ngIf="form.controls.ccv.errors.required">
+                CCV cannot be empty
+              </mat-error>
+              <mat-error *ngIf="form.controls.ccv.errors.minlength">
+                CCV must be atleast {{form.controls.ccv.errors.minlength.requiredLength}} digits long.
+              </mat-error>
+              <mat-error *ngIf="form.controls.ccv.errors.maxlength">
+                CCV must be at atmost {{form.controls.ccv.errors.maxlength.requiredLength}} digits long.
+              </mat-error>
+              <mat-error *ngIf="form.controls.ccv.hasError('pattern')">
+                CCV must be only in digits.
+              </mat-error>
+            </mat-error>
+          </mat-form-field>
+        </div>
+        <div class="col-lg-6 col-md-6 col-sm-6 col-xs-12" *ngIf="ccv2">
+          <mat-form-field>
+            <input matInput type="password" maxlength="4" minlength="4" placeholder="CCV No." formControlName="ccv2">
+            <mat-error *ngIf="form.controls.ccv2.touched && form.controls.ccv2.invalid">
+              <mat-error *ngIf="form.controls.ccv2.errors.required">
+                CCV cannot be empty
+              </mat-error>
+              <mat-error *ngIf="form.controls.ccv.errors.minlength">
+                CCV must be atleast {{form.controls.ccv.errors.minlength.requiredLength}} digits long.
+              </mat-error>
+              <mat-error *ngIf="form.controls.ccv.errors.maxlength">
+                CCV must be at atmost {{form.controls.ccv.errors.maxlength.requiredLength}} digits long.
+              </mat-error>
+              <mat-error *ngIf="form.controls.ccv2.hasError('pattern')">
+                CCV must be only in digits.
+              </mat-error>
+            </mat-error>
+          </mat-form-field>
+        </div>
+        <div class="col-lg-6 col-md-6 col-sm-6 col-xs-12">
+          <mat-form-field>
+            <input matInput placeholder="Expiry Date (MM/YYYY)" [textMask]="{mask: mask}" type="text" formControlName="expirydate">
+            <mat-error *ngIf="form.controls.expirydate.touched && form.controls.expirydate.invalid">
+              <mat-error *ngIf="form.controls.expirydate.errors.required">
+                Expiry date cannot be empty
+              </mat-error>
+              <mat-error *ngIf="form.controls.expirydate.hasError('pattern')">
+                Expiry date must be in MM/YYYY format.
+              </mat-error>
+            </mat-error>
+          </mat-form-field>
+        </div>
+        <div class="col-lg-6 col-md-6 col-sm-6 col-xs-12">
+          <mat-form-field>
+            <input matInput placeholder="Street Address" maxlength="300" type="text" formControlName="address">
+            <mat-error *ngIf="form.controls.address.touched && form.controls.address.invalid">
+              <mat-error *ngIf="form.controls.address.errors.required">
+                Street Address cannot be empty
+              </mat-error>
+            </mat-error>
+          </mat-form-field>
+        </div>
+        <div class="col-lg-6 col-md-6 col-sm-6 col-xs-12">
+          <mat-form-field>
+            <input matInput placeholder="Zip Code" maxlength="5" type="text" formControlName="zip" (ngModelChange)="zipcodeCheck(zipcode1.value)"
+              #zipcode1>
+            <mat-error *ngIf="form.controls.zip.touched && form.controls.zip.invalid">
+              <mat-error *ngIf="form.controls.zip.errors.cannotContainSpace">
+                Zip Code cannot contain spaces
+              </mat-error>
+              <mat-error *ngIf="form.controls.zip.errors.required">
+                Zip code cannot be empty
+              </mat-error>
+              <mat-error *ngIf="form.controls.zip.hasError('pattern')">
+                Zip Code must be only in digits.
+              </mat-error>
+            </mat-error>
+          </mat-form-field>
+        </div>
+        <div class="col-lg-6 col-md-6 col-sm-6 col-xs-12">
+          <mat-form-field>
+            <input matInput placeholder="City" type="text" formControlName="city">
+            <mat-error *ngIf="form.controls.city.touched && form.controls.city.invalid">
+              <mat-error *ngIf="form.controls.city.errors.required">
+                City cannot be empty
+              </mat-error>
+
+            </mat-error>
+          </mat-form-field>
+        </div>
+        <div class="col-lg-6 col-md-6 col-sm-6 col-xs-12">
+          <mat-form-field>
+            <input matInput placeholder="State" type="text" formControlName="state">
+            <mat-error *ngIf="form.controls.state.touched && form.controls.state.invalid">
+              <mat-error *ngIf="form.controls.state.errors.required">
+                State cannot be empty
+              </mat-error>
+            </mat-error>
+          </mat-form-field>
+        </div>
+        <div class="col-lg-6 col-md-6 col-sm-6 col-xs-12">
+          <mat-form-field>
+            <input matInput placeholder="Country" type="text" formControlName="country">
+            <mat-error *ngIf="form.controls.country.touched && form.controls.country.invalid">
+              <mat-error *ngIf="form.controls.country.errors.required">
+                Country cannot be empty
+              </mat-error>
+            </mat-error>
+          </mat-form-field>
+        </div>
+        <div class="col-lg-6 col-md-6 col-sm-6 col-xs-12">
+          <mat-form-field>
+            <input matInput type="text" placeholder="Card nickname" maxlength="12" formControlName="cardnickname">
+            <mat-error *ngIf="form.controls.cardnickname.touched && form.controls.cardnickname.invalid">
+              <mat-error *ngIf="form.controls.cardnickname.errors.required">
+                Nick name cannot be empty
+              </mat-error>
+              <mat-error *ngIf="form.controls.cardnickname.errors.minlength">
+                Nick name must be atleast {{form.controls.cardnickname.errors.minlength.requiredLength}} characters
+                long.
+              </mat-error>
+              <mat-error *ngIf="form.controls.cardnickname.errors.maxlength">
+                Nick name must be at atmost {{form.controls.cardnickname.errors.maxlength.requiredLength}} characters
+                long.
+              </mat-error>
+              <!-- <mat-error *ngIf="form.controls.cardnickname.errors.cannotContainSpace">
+                        Nick name cannot contain spaces
+                      </mat-error> -->
+              <mat-error *ngIf="form.controls.cardnickname.hasError('pattern')">
+                Card Holder Name must be only in Alphabet.
+              </mat-error>
+            </mat-error>
+          </mat-form-field>
+        </div>
+        <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12 text-center">
+          <button class="btn btn-rose btn-fill btn-wd add-payment" (click)="add()">Add</button>
+        </div>
+      </form>
+      <mat-slide-toggle name="default" [(ngModel)]=default (change)="changed()" class="py-toggle">Set as Defalt</mat-slide-toggle>
+      <mat-slide-toggle name="setautopay" [(ngModel)]=setautopay (change)="changed()">Enroll in Autopay</mat-slide-toggle>
+    </div>
+  </div>
+</div>
+<div class="sh-container-paymnt" *ngIf="message!='No Credit card detail in your list'">
+  <div class="table-responsive margin-top-20">
+    <table class="table payment-table">
+      <thead>
+        <tr>
+          <th>Name</th>
+          <th>Card Number</th>
+          <th>CCV</th>
+          <th>Expiry Date</th>
+          <!-- <th>Pin Code</th> -->
+          <th>Street Address</th>
+          <th>Zip Code</th>
+          <th>City</th>
+          <th>State</th>
+          <th>Country </th>
+          <th>Status</th>
+          <th>Edit</th>
+          <th>Delete</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let card of res">
+          <td>{{card.nickname}}</td>
+                            <td>{{card.cardNumber}}</td>
+                            <!-- <td>{{card.number | slice:0:4}}-{{card.number | slice:4:8}}-{{card.number | slice:8:12}}</td> -->
+                            <td>{{card.ccv}}</td>
+                            <td>{{card.expiryDate }} </td>
+                            <!-- <td>{{card.pinCode.length > 0 ? '...' : '****'}} </td> -->
+                            <td>{{card.street_address }} </td>
+                            <td>{{card.zipcode }} </td>
+                            <td> {{card.city }}</td>
+                            <td>{{card.state }} </td>
+                            <td> {{card.country }}</td>
+                            <td>{{card.default}}</td>
+          <td>
+            <h3 class="edit-payment">
+              <a class="edit" (click)="get(card.default,card.id,card.nickname,card.cardNumber,card.ccv,card.expiryDate,card.street_address,card.zipcode,card.city,card.state,card.country,card.autopay)"
+                data-target="#myModal2" data-toggle="modal">
+                <i class="fa fa-edit"></i>
+              </a>
+            </h3>
+          </td>
+          <td>
+            <h3 class="edit-payment">
+              <a class="delete" (click)="deleteSingleCard(card.id)">
+                <i class="fa fa-trash"></i>
+              </a>
+            </h3>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+</div>
+<div class="modal fade modal-form" id="edit-card-modal" role="dialog">
+  <div class="modal-dialog">
+    <div class="modal-content" style="margin-top:53%;">
+      <div class="modal-header">
+        <div class="form-1-header">
+          <h1>Edit your Credit Card Information</h1>
+        </div>
+      </div>
+      <div class="modal-body">
+      </div>
+    </div>
+  </div>
+</div>
+<!--.....................-->
+<div class="modal fade" id="myModal2" role="dialog">
+  <div class="modal-dialog">
+    <!-- Modal content-->
+    <div class="modal-content popupmodel">
+
+      <div class="modal-body sh-modal-body">
+        <div class="popup-close-button" data-dismiss="modal">X</div>
+        <div class="row">
+          <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12 ">
+            <p class="modal-v2__main-heading"> Edit your Credit Card Information </p>
+          </div>
+          <form class="sh-signup-form-fix">
+            <div class="col-lg-6 col-md-6 col-sm-6 col-xs-12">
+              <mat-form-field>
+                <input matInput type="text" placeholder="Name" value="{{name}}" name="name" #upname>
+              </mat-form-field>
+            </div>
+            <div class="col-lg-6 col-md-6 col-sm-6 col-xs-12">
+              <mat-form-field>
+                <input matInput type="text" placeholder="Credit Card Number" maxlength="16" minlength="12" value="{{cardnumber}}"
+                  name="cardnumber" #updatecardnumber>
+              </mat-form-field>
+            </div>
+            <div class="col-lg-6 col-md-6 col-sm-6 col-xs-12">
+              <mat-form-field class="margin-top-30">
+                <input matInput type="password" maxlength="3" minlength="3" value="{{ccv}}" placeholder="CCV No." name="ccv"
+                  #updateccv>
+              </mat-form-field>
+            </div>
+            <div class="col-lg-6 col-md-6 col-sm-6 col-xs-12">
+              <mat-form-field class="margin-top-30">
+                <input matInput placeholder="Expiry Date (MM/YYYY)" type="text" name="expirydate" value="{{expirydate}}"
+                  #date>
+              </mat-form-field>
+            </div>
+
+            <div class="col-lg-6 col-md-6 col-sm-6 col-xs-12">
+              <mat-form-field class="margin-top-30">
+                <input matInput placeholder="Street Address" type="text" name="address" value="{{address}}"
+                  #updateaddress>
+              </mat-form-field>
+            </div>
+            <div class="col-lg-6 col-md-6 col-sm-6 col-xs-12">
+              <mat-form-field class="margin-top-30">
+                <input matInput placeholder="Zip Code" type="text" name="zip" value="{{zip}}" #updatezip>
+
+              </mat-form-field>
+            </div>
+            <div class="col-lg-6 col-md-6 col-sm-6 col-xs-12">
+              <mat-form-field class="margin-top-30">
+                <input matInput placeholder="City" type="text" name="city" value="{{city}}" #updatecity>
+              </mat-form-field>
+            </div>
+            <div class="col-lg-6 col-md-6 col-sm-6 col-xs-12">
+              <mat-form-field class="margin-top-30">
+                <input matInput placeholder="State" type="text" name="state" value="{{state}}" #updatestate>
+              </mat-form-field>
+            </div>
+            <div class="col-lg-6 col-md-6 col-sm-6 col-xs-12">
+              <mat-form-field class="margin-top-30">
+                <input matInput placeholder="Country" type="text" name="country" value="{{country}}" #updatecountry>
+              </mat-form-field>
+            </div>
+            <mat-slide-toggle name="updefault" [(ngModel)]=updefault (change)="changed()">Set as Defalt</mat-slide-toggle>
+            <mat-slide-toggle name="autopay" [(ngModel)]=autopay (change)="changed()">Enroll in Autopay</mat-slide-toggle>
+            <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+              <button class="btn btn-rose btn-fill btn-wd add-payment" (click)="updateSingleCard(updefault,autopay,upname.value,updatecardnumber.value,updateccv.value,date.value,updateaddress.value,updatezip.value,updatecity.value,updatestate.value,updatecountry.value)"
+                data-dismiss="modal">Update</button>
+            </div>
+          </form>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

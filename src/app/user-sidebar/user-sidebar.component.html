@@ -1,0 +1,150 @@
+<div class="sidebar-user sh-sidebar-user ">
+    <nav>
+            <h3 style="text-align: center" class="sh-mt-70" >Search Filters</h3>
+            <!-- <h3 style="text-align: center" class="sh-mt-100" *ngIf="!check_login()">Search Filters</h3> -->
+            <!-- </div> -->
+            <div class="card-content sh-card-content" style="margin-top:-22px;">
+            <form (ngSubmit)="onSubmit(f)" #f="ngForm" novalidate class="sh-sidebar-more-condense sh-date ">
+            <div class="row">
+                <div class="col-sm-12 text-center">
+                    <button type="submit" class="btn btn-primary btn-rose btn-lg sh-btn-fixed sh-refresh-res" title="Search">Refresh Results</button>
+                </div>
+            <div class="col-sm-12" style="margin-top: -10px">
+                
+            <mat-form-field >
+            <mat-select [(ngModel)]="status" placeholder="Status" name="status" (change)="onSubmit(f)">
+            <mat-option *ngFor="let food of foods" [value]="food.value">
+            {{ food.viewValue }}
+            </mat-option>
+            </mat-select>
+            </mat-form-field>
+            </div>
+            <div class="col-sm-12" >
+            <mat-form-field class="sh-sidebar-date">
+            <input  matInput placeholder="Posted Date" (click)="picker.open()" name="enterdate" (focus)="picker.open()" [matDatepicker]="picker"
+            [(ngModel)]="enterdate" (ngModelChange)="onSubmit(f)">
+            <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+            <mat-datepicker class="sh-date-top-fix" #picker></mat-datepicker>
+
+            </mat-form-field>
+            </div>
+            <div class="col-sm-12" >
+               
+            <mat-form-field class="example-full-width mat-size sh-sidebar-date">
+            <input placeholder="Due Date"  matInput (click)="picker2.open()" name="duedate" (focus)="picker2.open()" [matDatepicker]="picker2"
+            [(ngModel)]="duedate" (ngModelChange)="onSubmit(f)">
+            <mat-datepicker-toggle matSuffix [for]="picker2"></mat-datepicker-toggle>
+            <mat-datepicker #picker2 class="sh-date-top-fix"></mat-datepicker>
+            </mat-form-field>
+            </div>
+            <div class="col-sm-12" >
+            
+            <mat-form-field>
+            <mat-select placeholder="Search By State" [(ngModel)]="states" name="states" (change)="onSubmit(f)">
+                <input  class="inp" type="text" [(ngModel)]="statsearch" [ngModelOptions]="{standalone: true}"  class="search-allstates" placeholder="Search By State" style="width: 100%; border-radius: 7px">
+                <i class="fa fa-search s-icon-all-states" area-hidden="true" ></i>
+                <mat-option value='all'>Select All</mat-option>
+                <mat-option  class="elips-mat-opt" *ngFor="let item of state |filter:statsearch" [value]="item.state" title="{{item.state}}">{{item.state}}</mat-option>
+            
+            </mat-select>
+            </mat-form-field>
+            </div>
+                <div class="col-sm-12" >
+                    <mat-form-field>
+                        <mat-select placeholder="Search By Agency"  [(ngModel)]="agencies" name="agency" (change)="onSubmit(f)">
+                            <input class="inp" type="text" [(ngModel)]="agensearch" [ngModelOptions]="{standalone: true}" placeholder="Search By Agency"  class="search-allstates" style="width: 100%; border-radius: 7px;position: sticky">
+                            <i class="fa fa-search s-icon-all-states" area-hidden="true" ></i>
+                            <mat-option value='all'>Select All</mat-option>
+                            <mat-option class="elips-mat-opt" *ngFor="let item of agency| filter:agensearch" [value]="item.agency" title="{{item.agency}}">{{item.agency}}</mat-option>
+
+                        </mat-select>
+                    </mat-form-field>
+                </div>
+                <!--<div class="col-sm-12">-->
+                    <!--<mat-form-field>-->
+                        <!--<mat-select [(ngModel)]="counties" name="county" placeholder="Search By County">-->
+                            <!--<mat-option *ngFor="let item of county" [value]="item.county">{{item.county}}</mat-option>-->
+
+                        <!--</mat-select>-->
+                    <!--</mat-form-field>-->
+                <!--</div>-->
+
+            <div class="col-sm-12" >
+            <mat-form-field>
+            <mat-select placeholder="Search By Category" [(ngModel)]=cates name="cat" (change)="onSubmit(f)">
+                <input class="inp" type="text" [(ngModel)]="catsearch" [ngModelOptions]="{standalone: true}" placeholder="Search By Category"  class="search-allstates" style="width: 100%; border-radius: 7px">
+                <i class="fa fa-search s-icon-all-states" area-hidden="true" ></i>
+                <mat-option value='all'>Select All</mat-option>
+                <mat-option class="elips-mat-opt" *ngFor="let catitem of cat| filter:catsearch" [value]="catitem.category" title="{{catitem.category}}">{{catitem.category}}</mat-option>
+            </mat-select>
+            </mat-form-field>
+            </div>
+            </div>
+            </form>
+            </div>
+        <ul class="list-category" style="margin-top: -10px">
+
+            <li>
+                <h5>
+                    <span>States</span>
+                </h5>
+            </li>
+            <li>
+                <a class="abc" (click)=" formclear()" [routerLink]="['/state']" [queryParams]="{ state: 'California'}">California</a>
+            </li>
+            <li>
+                <a class="abc" (click)=" formclear()" [routerLink]="['/state']" [queryParams]="{ state: 'Florida'}">Florida</a>
+            </li>
+            <li>
+                <a class="abc" (click)=" formclear()" [routerLink]="['/state']" [queryParams]="{ state: 'Georgia'}">Georgia</a>
+            </li>
+            <li>
+                <a class="abc" (click)=" formclear()" [routerLink]="['/state']" [queryParams]="{ state: 'Illinois'}">Illinois</a>
+            </li>
+            <li>
+                <a class="abc" (click)=" formclear()" [routerLink]="['/state']" [queryParams]="{ state: 'Massachusetts'}">Massachusetts</a>
+            </li>
+            <li>
+                <a class="abc" (click)=" formclear()" [routerLink]="['/state']" [queryParams]="{ state: 'New Jersey'}">New Jersey</a>
+            </li>
+            <li>
+                <a class="abc" (click)=" formclear()" [routerLink]="['/state']" [queryParams]="{ state: 'New York'}"> New York</a>
+            </li>
+            <li>
+                <a class="abc" (click)=" formclear()" [routerLink]="['/state']" [queryParams]="{ state: 'North Carolina'}">North Carolina</a>
+            </li>
+            <li>
+                <a class="abc" (click)=" formclear()" [routerLink]="['/state']" [queryParams]="{ state: 'Texas'}">Texas</a>
+            </li>
+            <li>
+                <button [routerLink]="['/all-state']" class="btn btn-primary btn-rose sh-btn-fixed" title="View All States">View All States</button>
+            </li>
+            <li>
+                <h5>
+                    <span>Categories</span>
+                </h5>
+            </li>
+            <li>
+                <a class="abc" (click)=" formclear()" [routerLink]="['/category']" [queryParams]="{ cat: 'Global , Software, System and Application'}"> Global , Software, System and Application </a>
+            </li>
+            <li>
+                <a class="abc" (click)=" formclear()" [routerLink]="['/category']" [queryParams]="{ cat: 'Engine Accessories'}"> Engine Accessories </a>
+            </li>
+            <li>
+                <a class="abc" (click)=" formclear()" [routerLink]="['/category']" [queryParams]="{ cat: 'HR Services'}"> HR Services </a>
+            </li>
+            <li>
+                <a class="abc" (click)=" formclear()" [routerLink]="['/category']" [queryParams]="{ cat: 'IT Services (Computer Maintenance and Technical Services)'}"> IT Services (Computer Maintenance and Technical Services) </a>
+            </li>
+            <li>
+                <a class="abc" (click)=" formclear()" [routerLink]="['/category']" [queryParams]="{ cat: 'Medical and Surgical Supplies'}"> Medical and Surgical Supplies </a>
+            </li>
+            <li>
+                <a class="abc" (click)=" formclear()" [routerLink]="['/category']" [queryParams]="{ cat: 'Rental Services'}"> Rental Services </a>
+            </li>
+            <li>
+                <button [routerLink]="['/all-category']" class="btn btn-primary btn-rose sh-btn-fixed" title="View All Categories">View All Categories</button>
+            </li>
+        </ul>
+    </nav>
+</div>

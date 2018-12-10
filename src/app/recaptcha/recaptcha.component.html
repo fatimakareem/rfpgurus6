@@ -1,0 +1,14 @@
+<div class="recaptcha-outer-div">
+  <div style="display: flex">
+    <div style="width: 70%;">
+      <p id="text-wrapper" class="recaptcha-txt">{{recaptchaString}}</p>
+    </div>
+    <!--<i class="refresh-icon" (click)="reset()"></i>-->
+    <div style="width:30%;margin-left: 2px ">
+      <img src="../../assets/img/Reload3.png" style="width: 100%" (click)="reset()">
+    </div>
+  </div>
+  <div>
+    <input type="text" [(ngModel)]="enterText" placeholder="Enter Above Text">
+  </div>
+</div>

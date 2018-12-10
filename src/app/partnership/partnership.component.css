@@ -1,0 +1,7 @@
+textarea.form-control{height:auto!important}label{font-weight:700!important;font-size:22px!important;color:#fff!important}.form-control{color:#fff}
+.form-control, .form-group .form-control{
+    font-weight: normal !important;
+}
+label{
+    font-weight: normal!important;
+}

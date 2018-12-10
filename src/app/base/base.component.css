@@ -1,0 +1,11 @@
+*:not(i):not(.fa):not(.fas):not(.far):not(.mat-form-field-suffix):not(.mat-icon):not(.material-icons){
+    /* font-family: 'Proxima Nova', Georgia, sans-serif; */
+    /* font-family: 'proxima-nova',Arial,Helvetica,sans-serif; */
+    /* font-family: 'Work Sans', sans-serif; */
+    /* font-family: 'Open Sans', sans-serif; */
+    /* font-family: Helvetica !important; */
+    font-family: "Helvetica Neue", Helvetica, Arial, sans-serif !important;
+  }
+  .mat-form-field-empty.mat-form-field-placeholder, .sh-n-table .mat-form-field-can-float.mat-form-field-should-float .mat-form-field-placeholder, mat-form-field.mat-form-field {
+    font-size: 16px;
+}

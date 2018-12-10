@@ -1,0 +1,197 @@
+<div class="main-panel">
+    <div class="main-content custom" style="margin-top:10px;">
+        <div class="col-sm-12">
+            <div class="example-container mat-elevation-z8">
+                <div *ngIf="items">
+                    <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12 sh-pg-container" *ngIf="search == false">
+                        <div class="col-lg-9 col-md-9 col-sm-6 col-xs-12 text-right">
+                        <ul class="pagination" *ngIf="pager.pages && pager.pages.length">
+                            <li [ngClass]="{hide:pager.currentPage === 1}">
+                                <a (click)="onPaginateChange(pager.currentPage - 1)" class="view-1s" class="btn btn-fill">
+                                    <i class="fa fa-angle-left"></i>
+                                </a>
+                            </li>
+                            <li [ngClass]="{hide:pager.currentPage <= 30}">
+                                <a (click)="onPaginateChange(pager.currentPage - 30)">...</a>
+                            </li>
+                            <li *ngFor="let page of pager.pages" [ngClass]="{active:pager.currentPage === page}">
+                                <a (click)="onPaginateChange(page)" class="view-plan-details">{{page | number}}</a>
+                            </li>
+                            <li [ngClass]="{hide:pager.currentPage === pager.totalPages}" *ngIf="(pager.startPage  + 3) <= pager.totalPages">
+                                <a (click)="onPaginateChange(pager.currentPage + 3)">...</a>
+                            </li>
+                            <li [ngClass]="{hide:pager.currentPage === pager.totalPages}"> <a>Of</a></li>
+                            <li [ngClass]="{hide:pager.currentPage === pager.totalPages}">
+                                <a (click)="onPaginateChange(pager.totalPages)" class="view-plan-details" type="Last">{{pager.totalPages
+                                    | number}}</a>
+                            </li>
+                            <li *ngIf="pager.currentPage === pager.totalPages"> <a>Of</a></li>
+                            <li *ngIf="pager.currentPage === pager.totalPages">
+                                <a (click)="onPaginateChange(pager.totalPages)" class="view-plan-details" type="Last">{{pager.totalPages
+                                    | number}}</a>
+                            </li>
+                            <li [ngClass]="{hide:pager.currentPage === pager.totalPages}">
+                                <a (click)="onPaginateChange(pager.currentPage + 1)" class="view-plan-details" class="btn bd-color"
+                                    type="Next">
+                                    <i class="fa fa-angle-right top-set"></i>
+                                </a>
+                            </li>
+                        </ul>
+                    </div>
+         <div class="col-lg-3 col-md-3 col-sm-5 col-xs-12 prod-select-list sec-list sh-select-list"
+                            *ngIf="pager.pages && pager.pages.length">
+                            <label class="product-label" >Items per page:
+                            </label>
+                            <mat-form-field>
+                                <mat-select class="width-sec" placeholder="" value="{{pageSize}}" (change)="page(pageSize)"
+                                    value="pageSize" required [(ngModel)]="pageSize" name="pageSize">
+                                    <mat-option value="10" selected="true">10</mat-option>
+                                    <mat-option value="20">20 </mat-option>
+                                    <mat-option value="35">35</mat-option>
+                                    <mat-option value="50">50</mat-option>
+                                </mat-select>
+                            </mat-form-field>
+                        </div>
+                    </div>
+                    <div class=" sh-n-table sh-signup-form-fix">
+                        <table>
+                            <thead>
+                                <tr>
+                                    <th>RFP #</th>
+                                    <th>Title</th>
+                                    <th>Category</th>
+                                    <th>State</th>
+                                    <th>Posted Date</th>
+                                    <th>Submission Deadline</th>
+                                </tr>
+                                <tr>
+                                    <td>
+                                        <mat-form-field>
+                                            <input matInput name="Rfpnum" [(ngModel)]=Rfpnum placeholder="RFP #"
+                                                (ngModelChange)="onPaginateChange(1)" />
+                                        </mat-form-field>
+                                    </td>
+                                    <td>
+                                        <mat-form-field>
+                                            <input matInput name="title" [(ngModel)]=title placeholder="Title" (change)="onPaginateChange(1)" />
+                                        </mat-form-field>
+                                    </td>
+                                    <td>
+                                        <mat-form-field class="sh-tb-select">
+                                            <mat-select [(ngModel)]=cates name="cates" placeholder="Category"
+                                                (ngModelChange)="onPaginateChange(1)">
+                                                <input class="inp" type="text" [(ngModel)]="catsearch" [ngModelOptions]="{standalone: true}"
+                                                    placeholder="Search By Category" class="search-allstates" style="width: 100%; border-radius: 7px">
+                                                <i class="fa fa-search s-icon-all-states" area-hidden="true"></i>
+                                                <mat-option class="sh-tb-option" value='all'>Select All</mat-option>
+                                                <mat-option class="sh-tb-option" *ngFor="let catitem of cat | filter:catsearch"
+                                                    [value]="catitem.category">{{catitem.category}}</mat-option>
+                                            </mat-select>
+                                        </mat-form-field>
+                                    </td>
+                                    <td>
+                                        <mat-form-field class="sh-tb-select">
+                                            <mat-select [(ngModel)]="states" name="states" placeholder="State"
+                                                (ngModelChange)="onPaginateChange(1)">
+                                                <input class="inp" type="text" [(ngModel)]="statsearch"
+                                                    [ngModelOptions]="{standalone: true}" class="search-allstates"
+                                                    placeholder="Search By State" style="width: 100%; border-radius: 7px;">
+                                                <i class="fa fa-search s-icon-all-states" area-hidden="true"></i>
+                                                <mat-option class="sh-tb-option" value='all'>Select All</mat-option>
+                                                <mat-option class="sh-tb-option" *ngFor="let item of state | filter:statsearch"
+                                                    [value]="item.state">{{item.state}}</mat-option>
+                                            </mat-select>
+                                        </mat-form-field>
+                                    </td>
+                                    <td>
+                                        <mat-form-field class="sh-table-date">
+                                            <input matInput [matDatepicker]="startPicker" (focus)="startPicker.open()" name="enterdate" [(ngModel)]="enterdate"
+                                                placeholder="MM/DD/YYYY" (ngModelChange)="onPaginateChange(1)" />
+                                            <mat-datepicker-toggle matSuffix [for]="startPicker"></mat-datepicker-toggle>
+                                            <mat-datepicker #startPicker></mat-datepicker>
+                                        </mat-form-field>
+                                    </td>
+                                    <td>
+                                        <mat-form-field class="example-full-width mat-size sh-table-date ">
+                                            <input matInput [matDatepicker]="startPicker1" (focus)="startPicker1.open()" name="duedate" [(ngModel)]="duedate"
+                                                placeholder="MM/DD/YYYY" (ngModelChange)="onPaginateChange(1)" />
+                                            <mat-datepicker-toggle matSuffix [for]="startPicker1"></mat-datepicker-toggle>
+                                            <mat-datepicker #startPicker1></mat-datepicker>
+                                        </mat-form-field>
+                                    </td>
+                                </tr>
+                            </thead>
+                            <tbody *ngIf="search == false && items">
+                                <tr *ngFor="let data of items;let i=index">
+                                    <td (click)="singlerfp(data.seoTitleUrl)">
+                                        {{data.rfpkey }}
+                                    </td>
+                                    <td><span class="block-ellipsis"> {{data. title}}</span></td>
+                                    <td>{{data.category}}</td>
+                                    <td class="sh-align-center">{{data.state }} </td>
+                                    <td class="sh-align-center">{{data.date_entered | date:'MMM-dd-y' }} </td>
+                                    <td class="sh-align-center">{{data.due_date | date:'MMM-dd-y' }} </td>
+                                </tr>
+                            </tbody>
+                        </table>
+                        <div *ngIf="search == true" class="text-center">
+                            <i class="fa fa-exclamation-triangle" style="font-size:35px;padding:15px 0 0;"></i>
+                            <h3 class="text-center">No Record Found</h3>
+                        </div>
+                    </div>
+                    <!-- <ng2-smart-table class="sh-table" [settings]="settings" [source]="items" (userRowSelect)="onUserRowSelect($event)" ></ng2-smart-table> -->
+                </div>
+                <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12 sh-pg-container" *ngIf="search == false">
+                        <div class="col-lg-9 col-md-9 col-sm-6 col-xs-12 text-right">
+                                <ul class="pagination" *ngIf="pager.pages && pager.pages.length">
+                                    <li [ngClass]="{hide:pager.currentPage === 1}">
+                                        <a (click)="onPaginateChange(pager.currentPage - 1)" class="view-1s" class="btn btn-fill">
+                                            <i class="fa fa-angle-left"></i>
+                                        </a>
+                                    </li>
+                                    <li [ngClass]="{hide:pager.currentPage <= 30}">
+                                        <a (click)="onPaginateChange(pager.currentPage - 30)">...</a>
+                                    </li>
+                                    <li *ngFor="let page of pager.pages" [ngClass]="{active:pager.currentPage === page}">
+                                        <a (click)="onPaginateChange(page)" class="view-plan-details">{{page | number}}</a>
+                                    </li>
+                                    <li [ngClass]="{hide:pager.currentPage === pager.totalPages}" *ngIf="(pager.startPage  + 3) <= pager.totalPages">
+                                        <a (click)="onPaginateChange(pager.currentPage + 3)">...</a>
+                                    </li>
+                                    <li [ngClass]="{hide:pager.currentPage === pager.totalPages}"> <a>Of</a></li>
+                                    <li [ngClass]="{hide:pager.currentPage === pager.totalPages}">
+                                        <a (click)="onPaginateChange(pager.totalPages)" class="view-plan-details" type="Last">{{pager.totalPages
+                                            | number}}</a>
+                                    </li>
+                                    <li *ngIf="pager.currentPage === pager.totalPages"> <a>Of</a></li>
+                                    <li *ngIf="pager.currentPage === pager.totalPages">
+                                        <a (click)="onPaginateChange(pager.totalPages)" class="view-plan-details" type="Last">{{pager.totalPages
+                                            | number}}</a>
+                                    </li>
+                                    <li [ngClass]="{hide:pager.currentPage === pager.totalPages}">
+                                        <a (click)="onPaginateChange(pager.currentPage + 1)" class="view-plan-details" class="btn bd-color"
+                                            type="Next">
+                                            <i class="fa fa-angle-right top-set"></i>
+                                        </a>
+                                    </li>
+                                </ul>
+                            </div>
+                            <div class="col-lg-3 col-md-3 col-sm-5 col-xs-12 prod-select-list sec-list sh-select-list"
+                            *ngIf="pager.pages && pager.pages.length">
+                        <label class="product-label" >Items per page:
+                        </label>
+                        <mat-form-field>
+                            <mat-select class="width-sec" placeholder="" value="pageSize" (change)="page(pageSize)"
+                                value="pageSize" required [(ngModel)]="pageSize" name="pageSize">
+                                <mat-option value="10" selected="true">10</mat-option>
+                                <mat-option value="20">20 </mat-option>
+                                <mat-option value="35">35</mat-option>
+                                <mat-option value="50">50</mat-option>
+                            </mat-select>
+                        </mat-form-field>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
